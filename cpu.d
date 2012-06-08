@@ -24,6 +24,10 @@ public:
         writeln("Moveing ",reg[src]," from ",src," to ",dest);
     }//end move
 
+    void mul(byte dest, byte src){
+    	reg[dest]*=reg[src];
+	writeln("Multiplying",src," to ",dest," resuting in ",reg[dest]);
+    }
     void mov_i(byte dest, byte src){
         reg[dest]=src;
         writeln("Moveing ",src," into ",dest);
@@ -34,13 +38,17 @@ public:
 	        case 'X':
 	            writeln("End of program");
 	            break;
+            case '+':
 		    case 'a':
 		        add(dest,src);
 		        break;
 		    case 'm':
 		        mov(dest,src);
 		        break;
-		    case 'M':
+		    case '*':
+                mul(dest,src);
+                break;
+            case 'M':
 		        mov_i(dest,src);
 		        break;
 		    default:
@@ -69,5 +77,7 @@ unittest {
     assert(i7.reg[0] == 0x7);
     i7.add(0,1);
     assert(i7.reg[0] == 0x10);
+    i7.mul(0,1);
+    assert(i7.reg[0] == 0x90);
 }
 
