@@ -61,7 +61,8 @@ public:
 }//end class core
 
 unittest {
-    auto i7 = new cpu();
+    byte testprog[] = [];
+    auto i7 = new cpu(testprog);
     i7.reg[0] = 0;
     i7.reg[1] = 9;
     i7.mov_i(0,0x7);
