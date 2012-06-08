@@ -5,7 +5,7 @@ private:
     //instruction pointer
      int rip;
     //registers!
-    int reg[16];
+    int reg[32];
     //instrcution memory
     byte insts[];
     
